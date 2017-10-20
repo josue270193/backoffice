@@ -24,14 +24,14 @@
     
       <div class="jumbotron">
         <h1>Panel de control BO</h1>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Ver solicitudes</a></p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Ver tipos de servicios</a></p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Reportes</a></p>
+        <p><a class="btn btn-lg btn-success" href="solicitudes.jsp" role="button">Ver solicitudes</a></p>
+        <p><a class="btn btn-lg btn-success" href="servicios.jsp" role="button">Ver tipos de servicios</a></p>
+        <p><a class="btn btn-lg btn-success" href="reportes.jsp" role="button">Reportes</a></p>
       </div>
       
       <div class="row">
       	<div class="col-lg-4">
-      		<p><a class="btn btn-primary" href="#" role="button">Salir</a></p>
+      		<p><a class="btn btn-primary" href="index.jsp" role="button">Salir</a></p>
       	</div>
       </div>
       

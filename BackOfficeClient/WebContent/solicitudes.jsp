@@ -16,6 +16,14 @@
 
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
+    
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    
+    <script src="js/popper.min.js"></script>
+    
+    <script src="js/bootstrap.js"></script>
+    
+    <script src="js/solicitudes.js"></script>
   </head>
 
   <body>
@@ -38,40 +46,100 @@
                   <td>1</td>
                   <td>Hotelera</td>
                   <td>Pendiente</td>
-                  <td>Ver</td>
+                  <td>
+                  	<button type="button" class="btn btn-primary" 
+                  	data-toggle="modal" 
+                  	data-target="#detalleModal" 
+                  	data-numero="1" 
+                  	data-tipo="Hotelera" 
+                  	data-estado="Pendiente" 
+                  	data-detalle="No cuentan con el formulario 19833">Ver</button>
+                  </td>
                 </tr>
-                <tr>
+				<tr>
                   <td>2</td>
                   <td>Hotelera</td>
                   <td>Pendiente</td>
-                  <td>Ver</td>
+                  <td>
+                  	<button type="button" class="btn btn-primary" 
+                  	data-toggle="modal" 
+                  	data-target="#detalleModal" 
+                  	data-numero="2" 
+                  	data-tipo="Hotelera" 
+                  	data-estado="Pendiente" 
+                  	data-detalle="Sin observaciones">Ver</button>
+                  </td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td>Agencia</td>
-                  <td>Aprobada</td>
-                  <td>Ver</td>
+                  <td>Hotelera</td>
+                  <td>Pendiente</td>
+                  <td>
+                  	<button type="button" class="btn btn-primary" 
+                  	data-toggle="modal" 
+                  	data-target="#detalleModal" 
+                  	data-numero="3" 
+                  	data-tipo="Hotelera" 
+                  	data-estado="Pendiente" 
+                  	data-detalle="No esta habilitado para operar">Ver</button>
+                  </td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>Hotelera</td>
                   <td>Pendiente</td>
-                  <td>Ver</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Agencia</td>
-                  <td>Pendiente</td>
-                  <td>Ver</td>
+                  <td>
+                  	<button type="button" class="btn btn-primary" 
+                  	data-toggle="modal" 
+                  	data-target="#detalleModal" 
+                  	data-numero="4" 
+                  	data-tipo="Hotelera" 
+                  	data-estado="Pendiente" 
+                  	data-detalle="Sin observaciones">Ver</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>	
+          
+          
+      <div class="modal fade" id="detalleModal" tabindex="-1" role="dialog" aria-labelledby="detalleModalEtiqueta" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="detalleModalEtiqueta">Detalles para el nro de solicitud </h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+		          <div class="form-group">
+		            <label for="tipo-solicitud-modal" class="col-form-label">Tipo:</label>
+		            <input type="text" class="form-control" id="tipo-solicitud-modal">
+		          </div>
+		          <div class="form-group">
+		            <label for="estado-solicitud-modal" class="col-form-label">Estado:</label>
+		            <input type="text" class="form-control" id="estado-solicitud-modal">
+		          </div>
+		          <div class="form-group">
+		            <label for="detalle-solicitud-modal" class="col-form-label">Detalle:</label>
+		            <textarea class="form-control" id="detalle-solicitud-modal"></textarea>
+		          </div>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Desaprobar</button>
+		        <button type="button" class="btn btn-primary">Aprobar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
    	
       
       <div class="row">
       	<div class="col-lg-4">
-      		<p><a class="btn btn-primary" href="#" role="button">Ir al panel principal</a></p>
+      		<p><a class="btn btn-primary" href="panel.jsp" role="button">Ir al panel principal</a></p>
       	</div>
       </div>
       
