@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd
+        "
+        version="3.1"
+>
+    <display-name>BackOffice Cliente</display-name>
+
+    <servlet>
+        <display-name>Login</display-name>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>Panel</display-name>
+        <servlet-name>Panel</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Panel</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>Reporte</display-name>
+        <servlet-name>Reporte</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Reporte</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>Solicitudes</display-name>
+        <servlet-name>Solicitudes</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Solicitudes</servlet-class>
+    </servlet>
+    <servlet>
+        <display-name>Servicios</display-name>
+        <servlet-name>Servicios</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Servicios</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern/>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Panel</servlet-name>
+        <url-pattern>/Panel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Reporte</servlet-name>
+        <url-pattern>/Reporte</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Solicitudes</servlet-name>
+        <url-pattern>/Solicitudes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Servicios</servlet-name>
+        <url-pattern>/Servicios</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

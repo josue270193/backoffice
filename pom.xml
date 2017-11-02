@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>edu.uade.integracion</groupId>
+    <artifactId>BackOffice</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <wildfly.user>admin</wildfly.user>
+        <wildfly.pass>123456789</wildfly.pass>
+
+        <servlet.version>3.1.0</servlet.version>
+        <h2.version>1.4.196</h2.version>
+        <wildfly-maven-plugin.version>1.2.1.Final</wildfly-maven-plugin.version>
+        <jackson.version>2.9.0</jackson.version>
+
+    </properties>
+
+    <modules>
+        <module>BackOfficeEJB</module>
+        <module>BackOfficeClient</module>
+    </modules>
+</project>

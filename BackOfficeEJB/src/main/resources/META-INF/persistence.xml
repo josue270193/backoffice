@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="puBackOffice">
+        <!--<description>Configuracion del Persistence de BO</description>-->
+        <!--<provider>com.objectdb.jpa.Provider</provider>-->
+        <!--<properties>-->
+            <!--<property name="javax.persistence.jdbc.url" value="objectdb://localhost/my.odb"/>-->
+        <!--</properties>-->
+    </persistence-unit>
+
+</persistence>
