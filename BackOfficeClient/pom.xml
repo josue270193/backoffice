@@ -33,12 +33,6 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>jaxrs-api</artifactId>
-            <version>${jaxrs-api.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- PARA LAS DEPENDENCIAS JS -->
         <dependency>

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Stateless
 @LocalBean
-public class ServicioBean implements IServicio{
+public class ServicioBean implements IServicio {
 
     @PersistenceContext(unitName = "puBO")
     private EntityManager entityManager;
