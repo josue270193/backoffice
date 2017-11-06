@@ -2,7 +2,9 @@ package edu.uade.integracion.backoffice.webservice.rest;
 
 import edu.uade.integracion.beans.ServicioBean;
 import edu.uade.integracion.dto.ServicioDTO;
+import edu.uade.integracion.dto.SolicitudDTO;
 import edu.uade.integracion.dto.TipoServicioDTO;
+import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
@@ -18,6 +20,23 @@ public class ServicioResource {
     @EJB
     private ServicioBean servicioBean;
 
+    @POST
+    @Path("/EnviarSolicitud")
+    @Produces(APPLICATION_JSON)
+    @Consumes(APPLICATION_JSON)
+    public SolicitudDTO crearSolicitud(SolicitudDTO input) {
+
+    
+        SolicitudDTO dto = new SolicitudDTO();
+        dto.setDetalle(input.getDetalle());
+        dto.setTipo(input.getTipo());
+        dto.setEstado(EstadoSolicitudEnum.PENDIENTE);
+
+//        return Response.status(200).entity(lista).build();
+        return dto;
+
+    }
+    
     @GET
     @Path("/GetServicios")
     @Produces(APPLICATION_JSON)
