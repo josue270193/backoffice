@@ -16,7 +16,7 @@ public class SolicitudResource {
         SolicitudDTO dto = new SolicitudDTO();
         dto.setId(id);
         dto.setTipo(TipoSolicitudEnum.AGENCIA);
-        dto.setEstado(EstadoSolicitudEnum.APROVADO);
+        dto.setEstado(EstadoSolicitudEnum.APROBADO);
         dto.setDetalle("DETALLE");
 
         return dto;

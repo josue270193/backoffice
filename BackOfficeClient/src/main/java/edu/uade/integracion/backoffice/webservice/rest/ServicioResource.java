@@ -31,6 +31,7 @@ public class ServicioResource {
         dto.setDetalle(input.getDetalle());
         dto.setTipo(input.getTipo());
         dto.setEstado(EstadoSolicitudEnum.PENDIENTE);
+        dto.setId((long) 1);
 
 //        return Response.status(200).entity(lista).build();
         return dto;
@@ -47,11 +48,14 @@ public class ServicioResource {
         ServicioDTO servicioDTO = new ServicioDTO();
         servicioDTO.setId(1l);
         servicioDTO.setNombre("NOMBRE");
-
-
         lista.add(servicioDTO);
+        
+        ServicioDTO servicioDTO2 = new ServicioDTO();
+        servicioDTO2.setId(2l);
+        servicioDTO2.setNombre("NOMBRE2");
+        lista.add(servicioDTO2);
 
-//        return Response.status(200).entity(lista).build();
+        //return Response.status(200).entity(lista).build();
         return lista;
 
     }
