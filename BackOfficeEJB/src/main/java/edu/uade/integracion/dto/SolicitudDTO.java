@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import edu.uade.integracion.dto.base.BaseDTO;
 import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
 import edu.uade.integracion.dto.enumerado.TipoSolicitudEnum;
+import edu.uade.integracion.entities.SolicitudEntity;
 import edu.uade.integracion.serializable.EstadoSolicitudEnumDeserializer;
 import edu.uade.integracion.serializable.EstadoSolicitudEnumSerializer;
 import edu.uade.integracion.serializable.TipoSolicitudEnumDeserializer;
@@ -41,5 +42,15 @@ public class SolicitudDTO extends BaseDTO {
     }
     public void setEstado(EstadoSolicitudEnum estado) {
         this.estado = estado;
+    }
+
+    public SolicitudDTO build(SolicitudEntity entity) {
+        if (entity != null){
+            setId(entity.getId());
+            setDetalle(entity.getDetalle());
+            setEstado(entity.getEstado());
+            setTipo(entity.getTipo());
+        }
+        return this;
     }
 }

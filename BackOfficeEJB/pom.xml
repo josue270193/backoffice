@@ -14,7 +14,6 @@
     <packaging>ejb</packaging>
 
     <properties>
-
     </properties>
 
     <dependencies>
@@ -31,13 +30,21 @@
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
             <scope>provided</scope>
         </dependency>
+        <!-- H2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- PARA SQL SERVER -->
+		<dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.3.1</version>
         </dependency>
 
         <!-- JACKSON -->
@@ -80,7 +87,77 @@
 
                 <executions>
                     <execution>
-                        <id>agregarBD</id>
+                        <id>deploySQLServerJTDS</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>deploy-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <groupId>net.sourceforge.jtds</groupId>
+                            <artifactId>jtds</artifactId>
+                            <name>jtds.jar</name>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>agregarBDSQLServer</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <address>subsystem=datasources</address>
+                            <resources>
+                                <resource>
+                                    <address>xa-data-source=java:jboss/BD_SQLSERVER_BO</address>
+                                    <properties>
+                                        <xa-datasource-class>net.sourceforge.jtds.jdbc.Driver</xa-datasource-class>
+                                        <jndi-name>java:jboss/BD_SQLSERVER_BO</jndi-name>
+                                        <enabled>true</enabled>
+                                        <driver-name>jtds.jar</driver-name>
+                                    </properties>
+                                    <resources>
+                                        <resource>
+                                            <address>
+                                                xa-datasource-properties=DatabaseName
+                                            </address>
+                                            <properties>
+                                                <value>backoffice</value>
+                                            </properties>
+                                        </resource>
+                                        <resource>
+                                            <address>
+                                                xa-datasource-properties=ServerName
+                                            </address>
+                                            <properties>
+                                                <value>localhost</value>
+                                            </properties>
+                                        </resource>
+                                        <resource>
+                                            <address>
+                                                xa-datasource-properties=User
+                                            </address>
+                                            <properties>
+                                                <value>sa</value>
+                                            </properties>
+                                        </resource>
+                                        <resource>
+                                            <address>
+                                                xa-datasource-properties=Password
+                                            </address>
+                                            <properties>
+                                                <value>123456789</value>
+                                            </properties>
+                                        </resource>
+                                    </resources>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+
+
+                    <execution>
+                        <id>agregarBDH2</id>
                         <phase>package</phase>
                         <goals>
                             <goal>add-resource</goal>
@@ -90,7 +167,7 @@
                             <resources>
                                 <resource>
                                     <properties>
-                                        <jndi-name>java:jboss/BaseDatosBO</jndi-name>
+                                        <jndi-name>java:jboss/BD_H2_BO</jndi-name>
                                         <enabled>true</enabled>
                                         <connection-url>jdbc:h2:file:~/backoffice;DB_CLOSE_DELAY=-1</connection-url>
                                         <driver-class>org.h2.Driver</driver-class>
@@ -101,6 +178,7 @@
                             </resources>
                         </configuration>
                     </execution>
+
                 </executions>
             </plugin>
         </plugins>
