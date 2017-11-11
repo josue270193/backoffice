@@ -4,3 +4,4 @@
 .classpath
 *.iml
 .tern-project
+/target/
