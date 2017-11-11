@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="edu.uade.integracion.dto.LogDTO" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,27 +22,27 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Modulo</th>
-                <th>Accion</th>
-                <th>Fecha y Hora</th>
+                <th>Plataforma Envia</th>
+                <th>Plataforma Recibe</th>
+                <th>Servicio</th>
+                <th>Fecha</th>
+                <th>Observacion</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Oferta Hotelera</td>
-                <td>Error al cargar fotos del Hotel San Juan</td>
-                <td>10/10/2017 10:08HS</td>
-            </tr>
-            <tr>
-                <td>Oferta Paquetes</td>
-                <td>Error al validar datos de cliente nro 1111</td>
-                <td>11/10/2017 13:08HS</td>
-            </tr>
-            <tr>
-                <td>Oferta Hotelera</td>
-                <td>Error al cargar fotos del Hotel Hyatt</td>
-                <td>12/10/2017 17:08HS</td>
-            </tr>
+            <%
+            	for (LogDTO dto : ((List<LogDTO) request.getAttribute("lista")) ){				
+            %>
+            	<tr>
+                	<td><%= dto.getPlataformaEnvia() %></td>
+                	<td><%= dto.getPlataformaRecibe() %></td>
+                	<td><%= dto.getServicio() %></td>
+                	<td><%= dto.getFecha() %></td>
+                	<td><%= dto.getObservacion() %></td>
+            	</tr>
+            <%		
+            	}
+            %>
             </tbody>
         </table>
     </div>

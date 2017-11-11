@@ -4,5 +4,5 @@
              xsi:schemaLocation="
              http://www.jboss.com/xml/ns/javaee     http://anonsvn.jboss.org/repos/jbossws/spi/trunk/src/main/resources/schema/jboss_web_services_1.3.xsd">
 
-    <context-root>soap</context-root>
+    <context-root>TPO_BO_EJB/ServiciosBO</context-root>
 </webservices>

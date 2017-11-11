@@ -1,18 +1,19 @@
 package edu.uade.integracion.webservice.soap;
 
-import edu.uade.integracion.beans.SolicitudBean;
-import edu.uade.integracion.dto.SolicitudDTO;
-import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
-import edu.uade.integracion.dto.enumerado.TipoSolicitudEnum;
-
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.xml.bind.annotation.XmlElement;
+
+import edu.uade.integracion.beans.SolicitudBean;
+import edu.uade.integracion.dto.SolicitudDTO;
 
 @Stateless
-@WebService(name = "Solicitud", portName = "SolicitudPort")
+@WebService(name = "PrestadorAutorizado", portName = "SolicitudPort")
 @SOAPBinding()
 public class SolicitudSOAPResource {
 
@@ -20,14 +21,13 @@ public class SolicitudSOAPResource {
     private SolicitudBean solicitudBean;
 
     @WebMethod
-    public SolicitudDTO getPrestadorAutorizado(Long id) {
-
-        SolicitudDTO dto = new SolicitudDTO();
-        dto.setId(id);
-        dto.setTipo(TipoSolicitudEnum.AGENCIA);
-        dto.setEstado(EstadoSolicitudEnum.APROBADO);
-        dto.setDetalle("DETALLE");
-
-        return dto;
+    public @WebResult(name="solicitud") SolicitudDTO getPrestadorAutorizado(
+    		@WebParam(name="id") @XmlElement(required = true) Long id
+	) {
+    	SolicitudDTO dto = null;
+    	if (id != null){
+    		dto = solicitudBean.obtenerSolicitudPorId(id);
+    	}
+    	return dto;
     }
 }

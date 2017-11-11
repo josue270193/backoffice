@@ -1,16 +1,17 @@
 package edu.uade.integracion.beans;
 
-import edu.uade.integracion.dto.SolicitudDTO;
-import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
-import edu.uade.integracion.entities.SolicitudEntity;
-import edu.uade.integracion.interfaces.ILog;
-import edu.uade.integracion.interfaces.ISolicitud;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import edu.uade.integracion.dto.SolicitudDTO;
+import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
+import edu.uade.integracion.entities.SolicitudEntity;
+import edu.uade.integracion.interfaces.ILog;
+import edu.uade.integracion.interfaces.ISolicitud;
 
 @Stateless
 @LocalBean
@@ -39,4 +40,12 @@ public class SolicitudBean implements ISolicitud {
         }
         return null;
     }
+
+	@Override
+	public SolicitudDTO obtenerSolicitudPorId(Long idSolicitud) {
+		Query query = entityManager.createQuery("SELECT object(s) FROM SolicitudEntity s WHERE s.id = :id");
+		query.setParameter("id", idSolicitud);
+		SolicitudEntity entity = (SolicitudEntity) query.getSingleResult();
+		return new SolicitudDTO().build(entity);
+	}
 }

@@ -1,5 +1,7 @@
 package edu.uade.integracion.interfaces;
 
+import java.util.List;
+
 import edu.uade.integracion.dto.LogDTO;
 
 public interface ILog {
@@ -10,5 +12,5 @@ public interface ILog {
 
     LogDTO registrarLog(LogDTO log);
     LogDTO registrarLog(String platadormaEnvia, String plataformaRecibe, String servicio, String observacion);
-
+    List<LogDTO> obtenerTodos();
 }

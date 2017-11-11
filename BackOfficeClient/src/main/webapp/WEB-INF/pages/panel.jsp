@@ -17,6 +17,7 @@
 
     <div class="jumbotron">
         <h1>Panel de control BO</h1>
+        <p><a class="btn btn-lg btn-success" href="Solicitudes" role="button">ALGO AMAS</a></p>
         <p><a class="btn btn-lg btn-success" href="Solicitudes" role="button">Ver solicitudes</a></p>
         <p><a class="btn btn-lg btn-success" href="Servicios" role="button">Ver tipos de servicios</a></p>
         <p><a class="btn btn-lg btn-success" href="Reporte" role="button">Reportes</a></p>

@@ -1,22 +1,18 @@
 package edu.uade.integracion.beans;
 
-import edu.uade.integracion.dto.LogDTO;
-import edu.uade.integracion.dto.SolicitudDTO;
-import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
-import edu.uade.integracion.entities.LogEntity;
-import edu.uade.integracion.entities.SolicitudEntity;
-import edu.uade.integracion.interfaces.ILog;
+import java.util.Date;
+import java.util.List;
 
-import javax.annotation.Resource;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.SystemException;
-import javax.transaction.UserTransaction;
-import java.util.Date;
+
+import edu.uade.integracion.dto.LogDTO;
+import edu.uade.integracion.entities.LogEntity;
+import edu.uade.integracion.interfaces.ILog;
 
 @Stateless
 @LocalBean
@@ -53,5 +49,11 @@ public class LogBean implements ILog {
         }
         return null;
     }
+
+	@Override
+	public List<LogDTO> obtenerTodos() {
+		return null;
+	}
+
 
 }

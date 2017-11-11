@@ -5,5 +5,5 @@ import edu.uade.integracion.dto.SolicitudDTO;
 public interface ISolicitud {
 
     SolicitudDTO crearSolicitud(SolicitudDTO solicitud);
-
+    SolicitudDTO obtenerSolicitudPorId(Long idSolicitud);
 }
