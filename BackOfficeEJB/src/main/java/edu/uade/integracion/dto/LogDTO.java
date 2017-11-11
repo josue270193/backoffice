@@ -1,22 +1,23 @@
 package edu.uade.integracion.dto;
 
 import edu.uade.integracion.dto.base.BaseDTO;
+import edu.uade.integracion.entities.LogEntity;
 
 import java.util.Date;
 
 public class LogDTO extends BaseDTO {
 
-    private String platadormaEnvia;
+    private String plataformaEnvia;
     private String plataformaRecibe;
     private Date fecha;
     private String servicio;
     private String observacion;
 
-    public String getPlatadormaEnvia() {
-        return platadormaEnvia;
+    public String getPlataformaEnvia() {
+        return plataformaEnvia;
     }
-    public void setPlatadormaEnvia(String platadormaEnvia) {
-        this.platadormaEnvia = platadormaEnvia;
+    public void setPlataformaEnvia(String plataformaEnvia) {
+        this.plataformaEnvia = plataformaEnvia;
     }
 
     public String getPlataformaRecibe() {
@@ -45,5 +46,16 @@ public class LogDTO extends BaseDTO {
     }
     public void setObservacion(String observacion) {
         this.observacion = observacion;
+    }
+
+    public LogDTO build(LogEntity entity) {
+        if (entity != null){
+            setId(entity.getId());
+            setFecha(entity.getFecha());
+            setServicio(entity.getServicio());
+            setPlataformaRecibe(entity.getPlataformaRecibe());
+            setPlataformaEnvia(entity.getPlataformaEnvia());
+        }
+        return this;
     }
 }

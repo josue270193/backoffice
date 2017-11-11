@@ -1,6 +1,7 @@
 package edu.uade.integracion.webservice.rest;
 
-import edu.uade.integracion.beans.SolicitudBean;
+import edu.uade.integracion.beans.LogBean;
+import edu.uade.integracion.dto.LogDTO;
 import edu.uade.integracion.dto.SolicitudDTO;
 
 import javax.ejb.EJB;
@@ -14,18 +15,18 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Stateless
 @Path("/")
-public class SolicitudResource {
+public class LogResource {
 
     @EJB
-    private SolicitudBean solicitudBean;
+    private LogBean logBean;
 
     @POST
-    @Path("/EnviarSolicitud")
+    @Path("/RegistrarLog")
     @Produces(APPLICATION_JSON)
     @Consumes(APPLICATION_JSON)
-    public SolicitudDTO crearSolicitud(SolicitudDTO solicitud) {
+    public LogDTO crearSolicitud(LogDTO log) {
 
-        SolicitudDTO dto = solicitudBean.crearSolicitud(solicitud);
+        LogDTO dto = logBean.registrarLog(log);
         return dto;
     }
 }

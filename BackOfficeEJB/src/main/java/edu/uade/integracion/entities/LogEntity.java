@@ -10,7 +10,7 @@ import java.util.Date;
 public class LogEntity extends BaseEntity {
 
     @Column(name = "PLATAFORMA_ENVIA")
-    private String platadormaEnvia;
+    private String plataformaEnvia;
 
     @Column(name = "PLATAFORMA_RECIBE")
     private String plataformaRecibe;
@@ -25,11 +25,11 @@ public class LogEntity extends BaseEntity {
     @Column(name = "OBSERVACION", columnDefinition = "TEXT")
     private String observacion;
 
-    public String getPlatadormaEnvia() {
-        return platadormaEnvia;
+    public String getPlataformaEnvia() {
+        return plataformaEnvia;
     }
-    public void setPlatadormaEnvia(String platadormaEnvia) {
-        this.platadormaEnvia = platadormaEnvia;
+    public void setPlataformaEnvia(String plataformaEnvia) {
+        this.plataformaEnvia = plataformaEnvia;
     }
 
     public String getPlataformaRecibe() {

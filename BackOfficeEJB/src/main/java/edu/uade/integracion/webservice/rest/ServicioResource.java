@@ -7,6 +7,7 @@ import edu.uade.integracion.dto.TipoServicioDTO;
 import edu.uade.integracion.dto.enumerado.EstadoSolicitudEnum;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
+@Stateless
 @Path("/")
 public class ServicioResource {
 
