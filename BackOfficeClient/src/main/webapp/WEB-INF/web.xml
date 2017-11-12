@@ -20,9 +20,9 @@
         <servlet-class>edu.uade.integracion.backoffice.servlet.Panel</servlet-class>
     </servlet>
     <servlet>
-        <display-name>Reporte</display-name>
-        <servlet-name>Reporte</servlet-name>
-        <servlet-class>edu.uade.integracion.backoffice.servlet.Reporte</servlet-class>
+        <display-name>Logs</display-name>
+        <servlet-name>Logs</servlet-name>
+        <servlet-class>edu.uade.integracion.backoffice.servlet.Logs</servlet-class>
     </servlet>
     <servlet>
         <display-name>Solicitudes</display-name>
@@ -48,8 +48,8 @@
         <url-pattern>/Panel</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Reporte</servlet-name>
-        <url-pattern>/Reporte</url-pattern>
+        <servlet-name>Logs</servlet-name>
+        <url-pattern>/Logs</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Solicitudes</servlet-name>

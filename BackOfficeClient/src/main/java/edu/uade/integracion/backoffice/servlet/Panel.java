@@ -20,8 +20,8 @@ public class Panel extends ServletBase {
 
         PrintWriter out = response.getWriter();
 
-        String n = request.getParameter("inputEmail");
-        out.print("Bienvenido " + n);
+//        String n = request.getParameter("inputEmail");
+//        out.print("Bienvenido " + n);
 
         RequestDispatcher rd = request.getRequestDispatcher(resolverJSP("panel.jsp"));
         rd.include(request, response);

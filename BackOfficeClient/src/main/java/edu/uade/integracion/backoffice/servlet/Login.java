@@ -30,7 +30,7 @@ public class Login extends ServletBase {
             rd.include(request, response);
         } else {
             if (    n.equalsIgnoreCase("admin") &&
-                    p.equalsIgnoreCase("123456789")
+                    p.equalsIgnoreCase("123")
             ) {
                 ServletContext sc = getServletContext();
                 sc.getRequestDispatcher("/Panel").forward(request, response);

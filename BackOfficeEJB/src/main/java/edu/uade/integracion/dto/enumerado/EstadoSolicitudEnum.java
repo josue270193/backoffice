@@ -2,9 +2,9 @@ package edu.uade.integracion.dto.enumerado;
 
 public enum EstadoSolicitudEnum {
 
+    PENDIENTE("Pendiente"),
     APROBADO("Aprobado"),
-    RECHAZADO("Rechazado"),
-    PENDIENTE("Pendiente")
+    RECHAZADO("Rechazado")
     ;
 
     private String clave;

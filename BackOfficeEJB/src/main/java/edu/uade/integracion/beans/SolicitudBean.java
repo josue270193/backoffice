@@ -13,6 +13,8 @@ import edu.uade.integracion.entities.SolicitudEntity;
 import edu.uade.integracion.interfaces.ILog;
 import edu.uade.integracion.interfaces.ISolicitud;
 
+import java.util.List;
+
 @Stateless
 @LocalBean
 public class SolicitudBean implements ISolicitud {
@@ -48,4 +50,24 @@ public class SolicitudBean implements ISolicitud {
 		SolicitudEntity entity = (SolicitudEntity) query.getSingleResult();
 		return new SolicitudDTO().build(entity);
 	}
+
+    @Override
+    public List<SolicitudDTO> obtenerTodos() {
+        return null;
+    }
+
+    @Override
+    public SolicitudDTO aprobarSolicitud(Long idSolicitud) {
+        return null;
+    }
+
+    @Override
+    public SolicitudDTO rechazarSolicitud(Long idSolicitud) {
+        return null;
+    }
+
+    @Override
+    public SolicitudDTO cambiarEstadoSolicitud(Long idSolicitud, EstadoSolicitudEnum estado) {
+        return null;
+    }
 }

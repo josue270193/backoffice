@@ -1,5 +1,6 @@
 package edu.uade.integracion.beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import edu.uade.integracion.dto.LogDTO;
 import edu.uade.integracion.entities.LogEntity;
@@ -52,7 +54,16 @@ public class LogBean implements ILog {
 
 	@Override
 	public List<LogDTO> obtenerTodos() {
-		return null;
+        List<LogDTO> resultado = new ArrayList<>();
+
+        Query query = entityManager.createQuery("SELECT object(l) FROM LogEntity l");
+        List<LogEntity> lista = query.getResultList();
+
+        for(LogEntity entity : lista){
+            resultado.add(new LogDTO().build(entity));
+        }
+
+        return resultado;
 	}
 
 
