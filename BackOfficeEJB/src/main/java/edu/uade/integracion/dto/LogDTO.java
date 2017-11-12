@@ -55,6 +55,7 @@ public class LogDTO extends BaseDTO {
             setServicio(entity.getServicio());
             setPlataformaRecibe(entity.getPlataformaRecibe());
             setPlataformaEnvia(entity.getPlataformaEnvia());
+            setObservacion(entity.getObservacion());
         }
         return this;
     }

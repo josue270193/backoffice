@@ -17,6 +17,7 @@ import edu.uade.integracion.dto.SolicitudDTO;
 public class Solicitudes extends ServletBase {
 
 	private static final long serialVersionUID = 1L;
+    public static final String ACCION_SOLICITUD = "SOLICITUD";
 
     @EJB
     private SolicitudBean solicitudBean;
@@ -25,21 +26,39 @@ public class Solicitudes extends ServletBase {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doPost(request, response);
 
-        PrintWriter out = response.getWriter();
+        String accion = request.getParameter("accion");
 
-        List<SolicitudDTO> solicitudes = solicitudBean.obtenerTodos();
-        solicitudes.sort((o1, o2) -> {
-            if (o1.getEstado().compareTo(o2.getEstado()) == 0){
-                return o2.getId().compareTo(o1.getId());
-            } else {
-                return o1.getEstado().compareTo(o2.getEstado());
+        if (accion != null && !accion.trim().isEmpty()) {
+            if (accion.compareToIgnoreCase(ACCION_SOLICITUD) == 0){
+                Long id = Long.valueOf(request.getParameter("id"));
+                Integer tipo = Integer.valueOf(request.getParameter("tipo"));
+
+                switch (tipo){
+                    case 0:
+                        solicitudBean.aprobarSolicitud(id);
+                        break;
+                    case 1:
+                        solicitudBean.rechazarSolicitud(id);
+                        break;
+                }
             }
-        });
-        request.setAttribute("lista", solicitudes);
+        } else {
+            PrintWriter out = response.getWriter();
 
-        RequestDispatcher rd = request.getRequestDispatcher(resolverJSP("solicitudes.jsp"));
-        rd.include(request, response);
+            List<SolicitudDTO> solicitudes = solicitudBean.obtenerTodos();
+            solicitudes.sort((o1, o2) -> {
+                if (o1.getEstado().compareTo(o2.getEstado()) == 0){
+                    return o2.getId().compareTo(o1.getId());
+                } else {
+                    return o1.getEstado().compareTo(o2.getEstado());
+                }
+            });
+            request.setAttribute("lista", solicitudes);
 
-        out.close();
+            RequestDispatcher rd = request.getRequestDispatcher(resolverJSP("solicitudes.jsp"));
+            rd.include(request, response);
+
+            out.close();
+        }
     }
 }

@@ -20,6 +20,7 @@ import edu.uade.integracion.dto.TipoServicioDTO;
 public class Servicios extends ServletBase {
 
 	private static final long serialVersionUID = 1L;
+    public static final String ACCION_AGREGAR_SERVICIO = "AGREGAR_SERVICIO";
 
     @EJB
     private ServicioBean servicioBean;
@@ -28,15 +29,30 @@ public class Servicios extends ServletBase {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doPost(request, response);
 
-        PrintWriter out = response.getWriter();
+        String accion = request.getParameter("accion");
 
-        List<ServicioDTO> servicios = servicioBean.obtenerServiciosTodos();
-        servicios.sort(Comparator.comparing(o -> o.getTipo().getId()));
-        request.setAttribute("lista", servicios);
+        if (accion != null && !accion.trim().isEmpty()) {
+            if (accion.compareToIgnoreCase(ACCION_AGREGAR_SERVICIO) == 0){
+                String nombre = request.getParameter("nombre");
+                Long tipo = Long.valueOf(request.getParameter("tipo"));
 
-        RequestDispatcher rd = request.getRequestDispatcher(resolverJSP("servicios.jsp"));
-        rd.include(request, response);
+                servicioBean.agregarServicio(nombre, tipo);
+            }
+        } else {
+            PrintWriter out = response.getWriter();
 
-        out.close();
+            List<ServicioDTO> servicios = servicioBean.obtenerServiciosTodos();
+            servicios.sort(Comparator.comparing(o -> o.getTipo().getId()));
+            request.setAttribute("lista", servicios);
+
+            List<TipoServicioDTO> tipoServicios = servicioBean.obtenerTipoServiciosTodos();
+            request.setAttribute("listaServicio", tipoServicios);
+
+
+            RequestDispatcher rd = request.getRequestDispatcher(resolverJSP("servicios.jsp"));
+            rd.include(request, response);
+
+            out.close();
+        }
     }
 }

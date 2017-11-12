@@ -11,5 +11,5 @@ public interface IServicio {
     List<ServicioDTO> obtenerServiciosTodos();
     List<ServicioDTO> obtenerServiciosPorTipoServicioNombre(String nombre);
     List<ServicioDTO> obtenerServiciosPorTipoServicioId(Long id);
-
+    ServicioDTO agregarServicio(String nombre, Long tipoServicio);
 }
