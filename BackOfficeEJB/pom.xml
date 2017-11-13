@@ -111,7 +111,7 @@
                                 <resource>
                                     <address>xa-data-source=java:jboss/BD_SQLSERVER_BO</address>
                                     <properties>
-                                        <xa-datasource-class>net.sourceforge.jtds.jdbc.Driver</xa-datasource-class>
+                                        <xa-datasource-class>net.sourceforge.jtds.jdbcx.JtdsDataSource</xa-datasource-class>
                                         <jndi-name>java:jboss/BD_SQLSERVER_BO</jndi-name>
                                         <enabled>true</enabled>
                                         <driver-name>jtds.jar</driver-name>

@@ -2,6 +2,7 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <!-- PARA H2 -->
+    <!--
     <persistence-unit name="puBO">
         <description>Configuracion del Persistence de BO</description>
         <jta-data-source>java:jboss/BD_H2_BO</jta-data-source>
@@ -13,19 +14,19 @@
             <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
-
+    -->
     <!-- PARA SQLSERVER -->
-    <!--
+
     <persistence-unit name="puBO">
         <description>Configuracion del Persistence de BO</description>
         <jta-data-source>java:jboss/BD_SQLSERVER_BO</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
             <property name="hibernate.hbm2ddl.import_files" value="sql/data-sqlserver.sql" />
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
-    -->
+
 </persistence>
